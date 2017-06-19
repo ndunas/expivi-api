@@ -13,6 +13,26 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::post('/client', [
+	'uses' => 'ClientsController@postClient'
+]);
+
+Route::post('/filter', [
+	'uses' => 'ClientsController@filterClients'
+]);
+
+Route::get('/client', [
+	'uses' => 'ClientsController@getClients'
+]);
+
+Route::get('/find/{id}', [
+	'uses' => 'ClientsController@findClient'
+]);
+
+Route::put('/client/{id}', [
+	'uses' => 'ClientsController@putClient'
+]);
+
+Route::delete('/client/{id}', [
+	'uses' => 'ClientsController@deleteClient'
+]);
